@@ -187,7 +187,7 @@ namespace Calc
         {
             try
             {
-				string result = table.Compute(expression, null).ToString();
+		string result = table.Compute(expression, null).ToString();
                 return result;
             }
             catch
