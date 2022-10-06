@@ -69,7 +69,7 @@ Module Program
                 ElseIf Operation = "Pow" OrElse Operation = "Atan2" Then
                     For Each GlobalMatch As Match In Regex.Matches(DigestedExpression, Operation + "\(" + Pattern + "," + Pattern + "\)", RegexOptions.IgnoreCase)
                         For Each NumMatch As Match In Regex.Matches(GlobalMatch.Value, Pattern, RegexOptions.IgnoreCase)
-                            If NumMatch.NextMatch.Value.Trim() = String.Empty Then Continue For
+                            If NumMatch.NextMatch().Value.Trim() = String.Empty Then Continue For
                             DigestedExpression = DigestedExpression.Replace(GlobalMatch.Value, CalculateOperation(Operation, Convert.ToDouble(NumMatch.Value), Convert.ToDouble(NumMatch.NextMatch().Value)).ToString())
                         Next
                     Next
